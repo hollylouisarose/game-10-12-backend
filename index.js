@@ -1,47 +1,22 @@
 import express from 'express'
-import mongoose from 'mongoose'
+import router from './config/router.js'
+import { connectDb } from './db/helper.js'
 
 const app = express()
+
+app.use(express.json())
 const port = 4000
-const dbURI = 'mongodb://localhost/game10-12-db'
+app.use('/api', router)
 
-mongoose.set('strictQuery', false)
-
-app.use('/', (req, _res, next) => {
-  console.log(`incoming request: ${req.method} to ${req.url}`)
-  next()
-})
-
-app.get('/plots', async (req, res) => {
-  const plots = await Plot.find()
-  return res.status(200).json(plots)
-})
-
-// get request, parse the key out of the url
-// return one clue
-
-async function connectToMongoose() {
+async function startServer() {
   try {
-    await mongoose.connect(dbURI)
-    console.log('mongoose connected')
-  } catch (err) {
-    console.log('something went wrong', err)
+    await connectDb()
+    console.log('🤖 Database has connected')
+    app.listen(port, () => console.log(`🤖 Up and running on port ${port}`))
+  } catch (error) {
+    console.log('🤖 Something went wrong starting the App')
+    console.log(error)
   }
 }
 
-//logging middleware
-
-app.use('/', (req,_res,next)=> {
-  console.log(`Incoming ${req.method} to ${req.url}`)
-  next()
-})
-
-// Body Parsing middleware (all incoming data will be in JSON, please parse and add to req in a key called "body")
-
-app.use(express.json())
-
-app.listen(port, ()=> {
-  console.log(`app listening on port ${port}`)
-})
-
-connectToMongoose()
+startServer()

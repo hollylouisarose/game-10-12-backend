@@ -1,0 +1,11 @@
+{
+  "workbench.colorCustomizations": {
+    "statusBar.background": "#b145f4",
+    "titleBar.activeBackground": "#b145f4",
+    "titleBar.inactiveBackground": "#b145f4",
+    "statusBar.foreground": "#000",
+    "titleBar.inactiveForeground": "#000",
+    "titleBar.activeForeground": "#000",
+  },
+  "window.title": "Game backend 12-22"
+}
