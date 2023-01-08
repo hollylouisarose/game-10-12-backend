@@ -1,11 +1,13 @@
 import mongoose from 'mongoose'
+import mongooseUniqueValidator from 'mongoose-unique-validator'
 
 const gameSchema = new mongoose.Schema({
-  id: { type: Number, required: true, unique: true },
-  text: { type: String, required: true, unique: true },
-  keyword: { type: String, required: true, unique: true },
-  category: [{ type: String, required: true, unique: false }],
+  number: { type: Number, required: true, unique: true },
+  text: { type: String, required: true },
+  category: [{ type: String, required: true }],
 })
+
+gameSchema.plugin(mongooseUniqueValidator)
 
 const Plot = mongoose.model('Plot', gameSchema)
 

@@ -3,10 +3,13 @@ export default [
   // TO DO: add plot points here
 
   {
-    id: 1,
-    text: 'this is where we start',
-    keyword: 'All',
-    category: ['warrior', 'survivor', 'lover'],
+    number: 1,
+    text: 'the first plot point',
+    category: ['one'],
+  },
+  {
+    number: 2,
+    text: 'the second plot point',
+    category: ['two'],
   }
-
 ]
