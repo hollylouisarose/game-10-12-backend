@@ -3,13 +3,18 @@ export default [
   // TO DO: add plot points here
 
   {
-    number: 1,
-    text: 'the first plot point',
-    category: ['one'],
+    text: 'where we start',
+    category: ['warrior', 'lover', 'survivor'],
   },
+
   {
-    number: 2,
-    text: 'the second plot point',
-    category: ['two'],
+    text: 'where we end',
+    category: ['warrior', 'lover', 'survivor'],
+  },
+
+  {
+    text: 'in the middle',
+    category: ['warrior'],
   }
+
 ]
